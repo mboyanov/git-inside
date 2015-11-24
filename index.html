@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Git Insights Project</title>
+
+		<meta name="description" content="A source code analyzer to extract semantics and structure from git projects">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h2>Git Insights Project</h2>
+					<h4>A source code analyzer to extract semantics and structure from git projects</h4>
+					<i> by Martin Boyanov </i>
+					<aside class="notes">
+						Здравейте, сега ще ви представя моето предложение за проект Git Insights. Общо взето идеята е да се свали гит репо и да се анализира сорс кода с цел да се извадят някакви поуки. 		
+					</aside>
+				</section>
+
+				<section>
+					<section>
+						<h2>Ideas</h2>
+						<ul>
+							<li class="fragment"> Extract dependency tree and run Pagerank and/or other graph algorithms
+							<li class="fragment"> Tokenize and index the source code
+							<li class="fragment"> Tokenize and index the git commit messages
+						</ul>
+						
+					</section>
+					<section>
+						<h2> Dependency Tree </h2>
+						<img src ="img/pagerank.jpg"/> <br>
+						<ul>
+							<li class="fragment"> On package level? 
+							<li class="fragment"> On class level?
+							<li class="fragment"> On method level?
+						</ul>
+						<aside class="notes">
+							Pagerank & Hubs and Authorities
+							Coupling и cohesion
+							Language specific...
+						</aside>
+					</section>
+					<section>
+						<h2> Tokenize and index source code</h2>
+						<ul>
+							<li class="fragment" > Use the variable, method and class names to get some semantics out of the individual documents.
+							<li class="fragment"> Lots of stopwords...
+							<li class="fragment"> What is a document?
+					</section>
+
+					<section>
+						<h2> Tokenize and index git logs</h2>
+						<ul>
+							<li class="fragment"> git commit messages can be pretty informative and suggest <i> what the code actually does </i> and <i> why it was written </i>
+							<li class="fragment"> Some teams use labels and urls that link to documentation
+							<li class="fragment"> Commit messages are written by a single person - we could track code ownership by author
+							<li class="fragment"> Eventually we could classify developers by type 
+					</section>
+
+
+				</section>
+
+				<section> 
+					<h2> Thank you </h2>
+					<blockquote> Commit early, commit often. A tip for version controlling - not for relationships </blockquote>
+					<aside class ="notes">Във връзка с това,  </aside>
+				</section>
+				
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						Reveal.js comes with a few themes built in: <br>
+						<a href="?theme=sky#/themes">Sky</a> -
+						<a href="?theme=beige#/themes">Beige</a> -
+						<a href="?theme=simple#/themes">Simple</a> -
+						<a href="?theme=serif#/themes">Serif</a> -
+						<a href="?#/themes">Default</a>
+					</p>
+					<p>
+						<small>
+							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+						</small>
+					</p>
+				</section>
+
+				
+				
+			
+	
+	
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
